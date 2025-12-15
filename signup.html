@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MODAL */
+.auth-container {
+  position: relative;
+  width: 900px;
+  max-width: 95%;
+  height: 400px;          /* ⬅️ KUNCI TINGGI */
+  background: #fff;
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+}
+
+
+
+/* LEFT SIDE */
+.auth-left {
+  width: 45%;
+  background: linear-gradient(135deg, #2e7d6b, #1f5f50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+.auth-right {
+  width: 55%;
+  padding: 32px;
+  overflow-y: auto;     /* ⬅️ SCROLL DI SINI */
+}
+
+.auth-left img {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+/* 
+.surprise {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+} */
+
+
+/* RIGHT SIDE */
+.auth-right {
+  width: 55%;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 130px;
+  margin-bottom: 10px;
+}
+
+.auth-header h2 {
+  margin-bottom: 6px;
+}
+
+.auth-header p {
+  font-size: 14px;
+}
+
+.auth-header a {
+  color: #1e88ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* FORM */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.input-group input,
+.input-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #1e88ff;
+  outline: none;
+}
+
+/* RADIO */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.radio-group label {
+  display: flex;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.btn-primary {
+  margin-top: 10px;
+  padding: 14px;
+  background: #1e88ff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #166fd4;
+  transform: scale(1.02);
+}
+
+/* SCROLL */
+.auth-right::-webkit-scrollbar {
+  width: 6px;
+}
+
+.auth-right::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+  .auth-container {
+    width: 95%;
+    height: 95vh;
+    flex-direction: column;
+  }
+
+  .auth-left {
+    height: 200px;
+    width: 100%;
+  }
+
+  .auth-right {
+    width: 100%;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #f3f4f6;
+  color: #333;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #e5e7eb;
+  transform: scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="auth-container">
+    <button class="close-btn" onclick="closeModal()">×</button>
+
+  <!-- LEFT -->
+  <div class="auth-left">
+    <!-- <div class="surprise">!!</div> -->
+    <!-- Ganti src dengan ilustrasi kamu -->
+    <img src="assets/login-image.png" alt="Mascot">
+  </div>
+
+  <!-- RIGHT -->
+  <div class="auth-right">
+
+    <div class="auth-header">
+      <!-- <img src="https://i.imgur.com/8Km9tLL.png" class="logo" alt="Logo"> -->
+      <h2>Sign up</h2>
+      <p>Already have an Account? <a href="login.html">Sign in</a></p>
+    </div>
+
+    <form class="auth-form">
+
+      <div class="row">
+        <div class="input-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" required>
+        </div>
+        <div class="input-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gender" required> Male</label>
+          <label><input type="radio" name="gender"> Female</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Date of Birth</label>
+        <input type="date" required>
+      </div>
+
+      <div class="input-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="08xxxxxxxxxx" required>
+      </div>
+
+      <div class="input-group">
+        <label>School</label>
+        <input type="text" placeholder="Type your school">
+      </div>
+
+      <div class="input-group">
+        <label>Grade</label>
+        <select required>
+          <option value="">Select Grade</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" placeholder="example@mail.com" required>
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Email</label>
+        <input type="email" placeholder="Enter Confirm Email" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter Password" required>
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Enter Confirm Password" required>
+      </div>
+
+      <button type="submit" class="btn-primary">Sign up</button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+document.querySelector(".auth-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Sign up berhasil (contoh)");
+});
+
+function closeModal() {
+  document.querySelector('.auth-container').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
